@@ -107,9 +107,11 @@ def render_glyph(font, baseline_ascent, descent, cp):
     xadv = round(font.getlength(ch))
     H = baseline_ascent + descent + 4
     canvas_w = max(xadv, 1) + 6
-    img = Image.new("L", (canvas_w, H), 0)
+    # 用 "1" 模式 → FreeType 單色描繪（hinting、不做 AA），筆畫對齊像素格，
+    # 比「灰階再 threshold」在 1-bit 電子紙上更銳利、不會糊邊。
+    img = Image.new("1", (canvas_w, H), 0)
     d = ImageDraw.Draw(img)
-    d.text((0, baseline_ascent), ch, font=font, fill=255, anchor="ls")  # 左對齊、基線對齊
+    d.text((0, baseline_ascent), ch, font=font, fill=1, anchor="ls")  # 左對齊、基線對齊
     bbox = img.getbbox()
     if bbox is None:  # 空白字（如 space）
         return b"", 0, 0, 0, 0, xadv
@@ -121,7 +123,7 @@ def render_glyph(font, baseline_ascent, descent, cp):
     out = bytearray(bpr * h)
     for y in range(h):
         for x in range(w):
-            if px[x, y] >= 128:
+            if px[x, y]:  # 單色：非 0 即為黑
                 out[y * bpr + (x >> 3)] |= (0x80 >> (x & 7))
     xoff = x0
     yoff = y0 - baseline_ascent  # 相對基線（上方為負）
