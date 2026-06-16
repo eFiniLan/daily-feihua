@@ -31,7 +31,7 @@
 
 ## 🧰 硬體
 
-**Waveshare 2.13inch e-Paper Cloud Module**（已停產）
+**[Waveshare 2.13inch e-Paper Cloud Module](https://www.waveshare.com/wiki/2.13inch_e-Paper_Cloud_Module)**（已停產）
 
 - ESP32-WROOM-32 + 2.13" 黑白電子紙（250×122，SSD1680 → `GxEPD2_213_BN`）
 - 1800mAh 鋰電池 + 充電電路、板載按鈕、CP2102 USB-UART、Type-C
@@ -81,6 +81,10 @@ arduino-cli upload -p /dev/ttyUSB0 --fqbn $FQBN daily-feihua
 > 進不了燒錄模式時：壓住 **BOOT**、點一下 **RESET/EN**、再放開 BOOT。
 > 螢幕是 180° 橫向（`setRotation(3)`），讓 USB 朝上。
 
+> 🔑 **WiFi 帳密**寫在 `daily-feihua/wifi_config.h`：這是一個**獨立檔案、已被 gitignore
+> 不進版控**，但它是**編譯期 header**（被 `#include` 進主程式），所以帳密會被編進韌體
+> `.bin`，並非執行期動態讀取。換 WiFi 要改這個檔後**重新編譯 + 燒錄**。
+
 ---
 
 ## 🖥️ 螢幕排版
@@ -106,7 +110,7 @@ arduino-cli upload -p /dev/ttyUSB0 --fqbn $FQBN daily-feihua
 
 - `font_zh.h` — 由 `generate_font.py` 產生的「**codepoint 排序 glyph 表 + 1bpp bitmap**」
 - 韌體內自寫的 UTF-8 解碼 + 二分搜尋 + `drawPixel` blitter（`zhDraw()` 等）
-- 字源是 [**opfonts**](https://github.com/) 專案輸出的 `OpFont`（IBM Plex Sans 子集）：
+- 字源是 [**opfonts**](https://github.com/eFiniLan/opfonts) 專案輸出的 `OpFont`（IBM Plex Sans 子集）：
   - 狀態列 10px = OpFont-Bold；主廢句 30px = OpFont-Regular
   - 內含**整份教育部常用國字標準字體表（4,808 字）**，所以未來新生成的廢話用到任何
     常用字都已有 glyph，裝置端不必重產字型
@@ -141,7 +145,7 @@ python3 generate_font.py        # 直接寫進 daily-feihua/font_zh.h
 1. 把本 repo 推上 GitHub。
 2. `weekly-update.yml` 已放在 `.github/workflows/`，會自動排程；workflow 已宣告
    `permissions: models: read`，呼叫 GitHub Models **不需要任何額外金鑰**。
-3. 把韌體的 `JSON_URL` 設成 `https://raw.githubusercontent.com/<你>/daily-feihua/main/quotes.json`，燒一次。
+3. 把韌體的 `JSON_URL` 設成 `https://raw.githubusercontent.com/eFiniLan/daily-feihua/main/quotes.json`，燒一次。
 4. 想立刻試：repo 的 **Actions → 每週 AI 生成廢話 → Run workflow**。
 
 **換模型 / 換供應商**：`generate_feihua.py` 走 OpenAI 相容介面，設環境變數即可切換
@@ -236,6 +240,6 @@ MIT — 隨便用。字型來源（IBM Plex / Noto）採 SIL Open Font License 1
 ## 🙏 致謝
 
 - 廢話文學原作者：全體中文網民
-- 字型：[opfonts](https://github.com/)（IBM Plex Sans 子集）+ Noto Sans CJK 後備
+- 字型：[opfonts](https://github.com/eFiniLan/opfonts)（IBM Plex Sans 子集）+ Noto Sans CJK 後備
 - 硬體：Waveshare 2.13" e-Paper Cloud Module
 - 每週新廢話：GitHub Models
