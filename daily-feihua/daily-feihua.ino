@@ -51,7 +51,7 @@ GxEPD2_BW<GxEPD2_213_BN, GxEPD2_213_BN::HEIGHT> display(
 // 設定
 // ----------------------------------------------------------------------------
 #define SYNC_INTERVAL_DAYS   7
-#define JSON_URL             "https://raw.githubusercontent.com/YOUR_USER/daily-feihua/main/data/quotes.json"
+#define JSON_URL             "https://raw.githubusercontent.com/eFiniLan/daily-feihua/main/quotes.json"
 #define NTP_SERVER           "pool.ntp.org"
 #define TZ_OFFSET_SECONDS    8 * 3600    // 台北時間
 #define BOOT_REASON_CHECK    1
