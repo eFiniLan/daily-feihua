@@ -1,139 +1,1619 @@
 {
   "version": "2026-06-16",
-  "count": 130,
+  "count": 230,
   "generated_by": "Mavis (manual curation, sourced from 微博/知乎/網易雲音樂/公眾號/段子)",
   "stars_legend": "1=微廢(just stating the obvious) 2=入門 3=中度繞圈 4=高品質繞圈 5=神級廢話",
   "quotes": [
-    { "id": 1, "text": "聽君一席話，如聽一席話。", "level": 5, "category": "繞口令", "source": "網絡流行(2021)" },
-    { "id": 2, "text": "吃麵不吃蒜，等於沒吃蒜。", "level": 4, "category": "生活觀察", "source": "網絡流行" },
-    { "id": 3, "text": "你說的這話，拋開內容來說，我十分贊同。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 4, "text": "萬里無雲的天空，沒有一片雲。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 5, "text": "但凡你有點本事，也不至於一點本事也沒有哇。", "level": 5, "category": "毒舌繞圈", "source": "網絡流行" },
-    { "id": 6, "text": "我曾在極度憤怒的情況下極度憤怒！", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 7, "text": "希望下次見到你是在下次。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 8, "text": "據我所知，我一無所知。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 9, "text": "剝開香蕉後，你會發現一個剝了皮的香蕉。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 10, "text": "夕陽無限好，好就好。", "level": 4, "category": "廢話古詩", "source": "改寫自李商隱" },
-    { "id": 11, "text": "這個西紅柿，竟然有股番茄味兒。", "level": 4, "category": "生活觀察", "source": "網絡流行" },
-    { "id": 12, "text": "子曰：三人行，必有三人。", "level": 5, "category": "廢話古文", "source": "改寫自《論語》" },
-    { "id": 13, "text": "七日不見，如隔一週。", "level": 5, "category": "廢話古文", "source": "改寫自《西廂記》" },
-    { "id": 14, "text": "一日不見，如隔一日。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 15, "text": "螃蟹死之前還是活的。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 16, "text": "上次這麼無語還是上次。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 17, "text": "關於明天的事，你後天就知道了。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 18, "text": "如果不出意外的話應該是出意外了。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 19, "text": "我前腳剛走，後腳就跟上了。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 20, "text": "年紀輕輕就這麼年輕了。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 21, "text": "能力越大，能力就越大。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 22, "text": "俗話說得好：俗話說得好。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 23, "text": "統計顯示：未婚生育的人中竟然全部是女性。", "level": 4, "category": "廢話研究", "source": "網絡流行" },
-    { "id": 24, "text": "把土豆切成厚厚的薄片。", "level": 4, "category": "矛盾描述", "source": "網絡流行" },
-    { "id": 25, "text": "五彩斑斕的黑。", "level": 4, "category": "矛盾描述", "source": "甲方需求梗" },
-    { "id": 26, "text": "情況就是這麼個情況，具體什麼情況，還得看情況。", "level": 5, "category": "官話繞圈", "source": "網絡流行" },
-    { "id": 27, "text": "我睡覺的時候，完全不醒。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 28, "text": "我媽生我的那天正好是我的生日。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 29, "text": "如果你願意花點時間了解我，你就會發現花了點時間。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 30, "text": "相信我！你瘦下來一定很瘦！", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 31, "text": "雪崩的時候，沒有一片雪花是不崩的。", "level": 4, "category": "廢話古文", "source": "改寫自諺語" },
-    { "id": 32, "text": "三句話，讓男人聽了我三句話。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 33, "text": "這件事告訴我們一個道理，就是告訴我們一個道理。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 34, "text": "床前明月光，疑是明月光。", "level": 4, "category": "廢話古詩", "source": "改寫自李白" },
-    { "id": 35, "text": "十步殺一人，百步殺十人。", "level": 4, "category": "廢話古詩", "source": "改寫自李白" },
-    { "id": 36, "text": "十年生死兩茫茫，五年生死一茫茫。", "level": 4, "category": "廢話古詩", "source": "改寫自蘇軾" },
-    { "id": 37, "text": "千里江陵一日還，五百里江陵半日還。", "level": 4, "category": "廢話古詩", "source": "改寫自李白" },
-    { "id": 38, "text": "春風又綠江南岸，江南岸被春風綠。", "level": 4, "category": "廢話古詩", "source": "改寫自王安石" },
-    { "id": 39, "text": "粉身碎骨渾不怕，要留碎骨在人間。", "level": 4, "category": "廢話古詩", "source": "改寫自于謙" },
-    { "id": 40, "text": "談笑有鴻儒，往來有鴻儒。", "level": 4, "category": "廢話古詩", "source": "改寫自劉禹錫" },
-    { "id": 41, "text": "老夫聊發少年狂，左發狂，右發狂。", "level": 4, "category": "廢話古詩", "source": "改寫自蘇軾" },
-    { "id": 42, "text": "春風十里揚州路，捲起珠簾總不如。", "level": 3, "category": "廢話古詩", "source": "改寫自杜牧" },
-    { "id": 43, "text": "日出江花紅勝火，春來江水綠如藍。能不憶江南？", "level": 3, "category": "廢話古詩", "source": "原句白居易，加問號" },
-    { "id": 44, "text": "明日複明日，明日何其多。", "level": 3, "category": "廢話古詩", "source": "原句《明日歌》" },
-    { "id": 45, "text": "半斤八兩，一斤十六兩。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 46, "text": "但凡這句話有一點意義，也不至於一點意義都沒有。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 47, "text": "這個馬鈴薯長得跟土豆一樣。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 48, "text": "在掉鏈子這種事情上從未掉過鏈子。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 49, "text": "為什麼要討厭我們這些懶人，我們明明什麼都沒做。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 50, "text": "雖然我今天什麼也沒干，但還是辛苦我了。", "level": 4, "category": "自我安慰", "source": "網絡流行" },
-    { "id": 51, "text": "我知道你的出發點是好的，但是你先別出發。", "level": 4, "category": "毒舌繞圈", "source": "網絡流行" },
-    { "id": 52, "text": "我知道你很急，但是你先別急。", "level": 4, "category": "毒舌繞圈", "source": "網絡流行" },
-    { "id": 53, "text": "睡覺的時候一定要閉上眼，不然會睡不著。", "level": 4, "category": "生活觀察", "source": "網絡流行" },
-    { "id": 54, "text": "開門七件事：柴米油鹽醬醋茶，所以要開門。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 55, "text": "多喝熱水吧，因為喝熱水的時候水是熱的。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 56, "text": "兩情若是久長時，又豈能短到哪兒去。", "level": 4, "category": "廢話古詩", "source": "改寫自秦觀" },
-    { "id": 57, "text": "人每呼吸一分鐘，就會少一分鐘的壽命。", "level": 4, "category": "廢話研究", "source": "網絡流行" },
-    { "id": 58, "text": "我之前還沒發現，當我發現的時候我已經發現了。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 59, "text": "你不醜的話還挺好看的。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 60, "text": "安排的很好，下次別安排了。", "level": 4, "category": "毒舌繞圈", "source": "網絡流行" },
-    { "id": 61, "text": "我一定能活到死。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 62, "text": "親媽該有的親媽樣子。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 63, "text": "做你自己，因為別人已經有人做了。", "level": 3, "category": "哲學廢話", "source": "網絡流行" },
-    { "id": 64, "text": "閉上眼睛後眼前一片漆黑什麼也看不見。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 65, "text": "如果你從10層樓上跳下來還沒摔死，就說明你還活著。", "level": 4, "category": "廢話研究", "source": "網絡流行" },
-    { "id": 66, "text": "鴕鳥不會飛，因為牠是鴕鳥。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 67, "text": "我國有14億人口，其中有我一個。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 68, "text": "看完記得點讚，不然我不會知道。", "level": 3, "category": "社交廢話", "source": "網絡流行" },
-    { "id": 69, "text": "看完沒點讚的人也看完了。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 70, "text": "你說的這些話我左耳進右耳出，所以左耳進右耳出。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 71, "text": "每天叫醒我的不是夢想，是鬧鐘。", "level": 3, "category": "哲學廢話", "source": "網絡流行" },
-    { "id": 72, "text": "我胖了。胖了。", "level": 3, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 73, "text": "我承認我說的不對，但是我不改。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 74, "text": "16歲少女10年前居然才6歲。", "level": 4, "category": "廢話研究", "source": "網絡流行" },
-    { "id": 75, "text": "我不想卷了，但我也躺不平。", "level": 3, "category": "時代廢話", "source": "網絡流行(2023)" },
-    { "id": 76, "text": "好的，沒問題，馬上（指三小時後）。", "level": 4, "category": "社交廢話", "source": "網絡流行" },
-    { "id": 77, "text": "你說得對，但你先別說。", "level": 4, "category": "毒舌繞圈", "source": "網絡流行" },
-    { "id": 78, "text": "我這個人很簡單，有事直接說。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 79, "text": "我已經想通了，但還沒完全想通。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 80, "text": "我的夢想是實現夢想。", "level": 4, "category": "哲學廢話", "source": "網絡流行" },
-    { "id": 81, "text": "你很好，你很好，你真的很好。", "level": 3, "category": "社交廢話", "source": "網絡流行" },
-    { "id": 82, "text": "你還在啊，你還在。", "level": 2, "category": "冷場王", "source": "網絡流行" },
-    { "id": 83, "text": "我來了，我來了，我來了。", "level": 2, "category": "冷場王", "source": "網絡流行" },
-    { "id": 84, "text": "嗯嗯，收到。", "level": 1, "category": "冷場王", "source": "社交真實" },
-    { "id": 85, "text": "好的，收到，那我就先這樣了。", "level": 2, "category": "冷場王", "source": "社交真實" },
-    { "id": 86, "text": "沒事就沒事吧。", "level": 1, "category": "冷場王", "source": "社交真實" },
-    { "id": 87, "text": "我先去忙了。", "level": 1, "category": "冷場王", "source": "社交真實" },
-    { "id": 88, "text": "嗯。", "level": 1, "category": "冷場王", "source": "社交真實" },
-    { "id": 89, "text": "好的好的。", "level": 1, "category": "冷場王", "source": "社交真實" },
-    { "id": 90, "text": "據說每個成功男人背後都有一個女人。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 91, "text": "我話說完，誰贊成，誰反對，誰棄權。", "level": 4, "category": "官話繞圈", "source": "網絡流行" },
-    { "id": 92, "text": "我之前還沒發現，當我發現時我已經發現了。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 93, "text": "右眼看到的東西，左眼看不到。", "level": 4, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 94, "text": "陌生人，在嗎？你不在。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 95, "text": "我們終於又見面了，七日不見，如隔一週。", "level": 5, "category": "繞口令", "source": "網絡流行" },
-    { "id": 96, "text": "張三給李四打電話，電話響了，張三掛了。", "level": 3, "category": "故事廢話", "source": "網絡流行" },
-    { "id": 97, "text": "太陽東邊升起，西邊落下，方向感很好。", "level": 3, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 98, "text": "人會死，會。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 99, "text": "不要跟人吵架，萬一打贏了呢？", "level": 3, "category": "矛盾描述", "source": "網絡流行" },
-    { "id": 100, "text": "年齡是個秘密，年齡。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 101, "text": "我胖了，這是一個事實，胖了。", "level": 3, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 102, "text": "過馬路的時候要看紅綠燈，綠燈行紅燈停。", "level": 3, "category": "生活觀察", "source": "網絡流行" },
-    { "id": 103, "text": "有朋自遠方來，來了。", "level": 3, "category": "廢話古文", "source": "改寫自《論語》" },
-    { "id": 104, "text": "學而時習之，習。", "level": 3, "category": "廢話古文", "source": "改寫自《論語》" },
-    { "id": 105, "text": "老吾老以及人之老，幼吾幼以及人之幼。", "level": 3, "category": "廢話古文", "source": "原句《孟子》" },
-    { "id": 106, "text": "事實證明，說的都是事實。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 107, "text": "我這個人最大的缺點就是缺點太多。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 108, "text": "我話不多，都在這幾句話裡。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 109, "text": "你要的我都有——我有的，給你。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 110, "text": "天黑了，所以天黑了。", "level": 3, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 111, "text": "加油，為了自己，加油。", "level": 3, "category": "自我安慰", "source": "網絡流行" },
-    { "id": 112, "text": "今天又是充滿希望的一天，今天。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 113, "text": "我正在努力，努。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 114, "text": "看到這句話的時候，你在看這句話。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 115, "text": "你懂的，我也懂。", "level": 2, "category": "冷場王", "source": "網絡流行" },
-    { "id": 116, "text": "我開門見山地說，這句話很開門。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 117, "text": "我考慮過了，我會考慮的。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 118, "text": "我不騙你，騙你是小狗。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 119, "text": "工作嘛，幹就完了，幹。", "level": 3, "category": "時代廢話", "source": "網絡流行" },
-    { "id": 120, "text": "別人笑我太瘋癲，我笑他人看不穿。看得穿。", "level": 4, "category": "廢話古詩", "source": "改寫自唐寅" },
-    { "id": 121, "text": "希望這次可以，這次。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 122, "text": "好的，我知道了，我知道了。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 123, "text": "我不笨，只是不夠聰明。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 124, "text": "有些話我不知道怎麼說，因為說不清楚。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 125, "text": "我說的每句話都是我想說的。", "level": 4, "category": "繞口令", "source": "網絡流行" },
-    { "id": 126, "text": "今天的飯很好吃，今天。", "level": 3, "category": "描述廢話", "source": "網絡流行" },
-    { "id": 127, "text": "話說到這份上，這份上。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 128, "text": "聽到沒，沒聽到？", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 129, "text": "不是說你，我是說我。", "level": 3, "category": "繞口令", "source": "網絡流行" },
-    { "id": 130, "text": "看完就忘記了，忘記了。", "level": 3, "category": "繞口令", "source": "網絡流行" }
+    {
+      "id": 1,
+      "text": "聽君一席話，如聽一席話。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行(2021)"
+    },
+    {
+      "id": 2,
+      "text": "吃麵不吃蒜，等於沒吃蒜。",
+      "level": 4,
+      "category": "生活觀察",
+      "source": "網絡流行"
+    },
+    {
+      "id": 3,
+      "text": "你說的這話，拋開內容來說，我十分贊同。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 4,
+      "text": "萬里無雲的天空，沒有一片雲。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 5,
+      "text": "但凡你有點本事，也不至於一點本事也沒有哇。",
+      "level": 5,
+      "category": "毒舌繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 6,
+      "text": "我曾在極度憤怒的情況下極度憤怒！",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 7,
+      "text": "希望下次見到你是在下次。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 8,
+      "text": "據我所知，我一無所知。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 9,
+      "text": "剝開香蕉後，你會發現一個剝了皮的香蕉。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 10,
+      "text": "夕陽無限好，好就好。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自李商隱"
+    },
+    {
+      "id": 11,
+      "text": "這個西紅柿，竟然有股番茄味兒。",
+      "level": 4,
+      "category": "生活觀察",
+      "source": "網絡流行"
+    },
+    {
+      "id": 12,
+      "text": "子曰：三人行，必有三人。",
+      "level": 5,
+      "category": "廢話古文",
+      "source": "改寫自《論語》"
+    },
+    {
+      "id": 13,
+      "text": "七日不見，如隔一週。",
+      "level": 5,
+      "category": "廢話古文",
+      "source": "改寫自《西廂記》"
+    },
+    {
+      "id": 14,
+      "text": "一日不見，如隔一日。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 15,
+      "text": "螃蟹死之前還是活的。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 16,
+      "text": "上次這麼無語還是上次。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 17,
+      "text": "關於明天的事，你後天就知道了。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 18,
+      "text": "如果不出意外的話應該是出意外了。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 19,
+      "text": "我前腳剛走，後腳就跟上了。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 20,
+      "text": "年紀輕輕就這麼年輕了。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 21,
+      "text": "能力越大，能力就越大。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 22,
+      "text": "俗話說得好：俗話說得好。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 23,
+      "text": "統計顯示：未婚生育的人中竟然全部是女性。",
+      "level": 4,
+      "category": "廢話研究",
+      "source": "網絡流行"
+    },
+    {
+      "id": 24,
+      "text": "把土豆切成厚厚的薄片。",
+      "level": 4,
+      "category": "矛盾描述",
+      "source": "網絡流行"
+    },
+    {
+      "id": 25,
+      "text": "五彩斑斕的黑。",
+      "level": 4,
+      "category": "矛盾描述",
+      "source": "甲方需求梗"
+    },
+    {
+      "id": 26,
+      "text": "情況就是這麼個情況，具體什麼情況，還得看情況。",
+      "level": 5,
+      "category": "官話繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 27,
+      "text": "我睡覺的時候，完全不醒。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 28,
+      "text": "我媽生我的那天正好是我的生日。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 29,
+      "text": "如果你願意花點時間了解我，你就會發現花了點時間。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 30,
+      "text": "相信我！你瘦下來一定很瘦！",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 31,
+      "text": "雪崩的時候，沒有一片雪花是不崩的。",
+      "level": 4,
+      "category": "廢話古文",
+      "source": "改寫自諺語"
+    },
+    {
+      "id": 32,
+      "text": "三句話，讓男人聽了我三句話。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 33,
+      "text": "這件事告訴我們一個道理，就是告訴我們一個道理。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 34,
+      "text": "床前明月光，疑是明月光。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自李白"
+    },
+    {
+      "id": 35,
+      "text": "十步殺一人，百步殺十人。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自李白"
+    },
+    {
+      "id": 36,
+      "text": "十年生死兩茫茫，五年生死一茫茫。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自蘇軾"
+    },
+    {
+      "id": 37,
+      "text": "千里江陵一日還，五百里江陵半日還。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自李白"
+    },
+    {
+      "id": 38,
+      "text": "春風又綠江南岸，江南岸被春風綠。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自王安石"
+    },
+    {
+      "id": 39,
+      "text": "粉身碎骨渾不怕，要留碎骨在人間。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自于謙"
+    },
+    {
+      "id": 40,
+      "text": "談笑有鴻儒，往來有鴻儒。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自劉禹錫"
+    },
+    {
+      "id": 41,
+      "text": "老夫聊發少年狂，左發狂，右發狂。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自蘇軾"
+    },
+    {
+      "id": 42,
+      "text": "春風十里揚州路，捲起珠簾總不如。",
+      "level": 3,
+      "category": "廢話古詩",
+      "source": "改寫自杜牧"
+    },
+    {
+      "id": 43,
+      "text": "日出江花紅勝火，春來江水綠如藍。能不憶江南？",
+      "level": 3,
+      "category": "廢話古詩",
+      "source": "原句白居易，加問號"
+    },
+    {
+      "id": 44,
+      "text": "明日複明日，明日何其多。",
+      "level": 3,
+      "category": "廢話古詩",
+      "source": "原句《明日歌》"
+    },
+    {
+      "id": 45,
+      "text": "半斤八兩，一斤十六兩。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 46,
+      "text": "但凡這句話有一點意義，也不至於一點意義都沒有。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 47,
+      "text": "這個馬鈴薯長得跟土豆一樣。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 48,
+      "text": "在掉鏈子這種事情上從未掉過鏈子。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 49,
+      "text": "為什麼要討厭我們這些懶人，我們明明什麼都沒做。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 50,
+      "text": "雖然我今天什麼也沒干，但還是辛苦我了。",
+      "level": 4,
+      "category": "自我安慰",
+      "source": "網絡流行"
+    },
+    {
+      "id": 51,
+      "text": "我知道你的出發點是好的，但是你先別出發。",
+      "level": 4,
+      "category": "毒舌繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 52,
+      "text": "我知道你很急，但是你先別急。",
+      "level": 4,
+      "category": "毒舌繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 53,
+      "text": "睡覺的時候一定要閉上眼，不然會睡不著。",
+      "level": 4,
+      "category": "生活觀察",
+      "source": "網絡流行"
+    },
+    {
+      "id": 54,
+      "text": "開門七件事：柴米油鹽醬醋茶，所以要開門。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 55,
+      "text": "多喝熱水吧，因為喝熱水的時候水是熱的。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 56,
+      "text": "兩情若是久長時，又豈能短到哪兒去。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自秦觀"
+    },
+    {
+      "id": 57,
+      "text": "人每呼吸一分鐘，就會少一分鐘的壽命。",
+      "level": 4,
+      "category": "廢話研究",
+      "source": "網絡流行"
+    },
+    {
+      "id": 58,
+      "text": "我之前還沒發現，當我發現的時候我已經發現了。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 59,
+      "text": "你不醜的話還挺好看的。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 60,
+      "text": "安排的很好，下次別安排了。",
+      "level": 4,
+      "category": "毒舌繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 61,
+      "text": "我一定能活到死。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 62,
+      "text": "親媽該有的親媽樣子。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 63,
+      "text": "做你自己，因為別人已經有人做了。",
+      "level": 3,
+      "category": "哲學廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 64,
+      "text": "閉上眼睛後眼前一片漆黑什麼也看不見。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 65,
+      "text": "如果你從10層樓上跳下來還沒摔死，就說明你還活著。",
+      "level": 4,
+      "category": "廢話研究",
+      "source": "網絡流行"
+    },
+    {
+      "id": 66,
+      "text": "鴕鳥不會飛，因為牠是鴕鳥。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 67,
+      "text": "我國有14億人口，其中有我一個。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 68,
+      "text": "看完記得點讚，不然我不會知道。",
+      "level": 3,
+      "category": "社交廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 69,
+      "text": "看完沒點讚的人也看完了。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 70,
+      "text": "你說的這些話我左耳進右耳出，所以左耳進右耳出。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 71,
+      "text": "每天叫醒我的不是夢想，是鬧鐘。",
+      "level": 3,
+      "category": "哲學廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 72,
+      "text": "我胖了。胖了。",
+      "level": 3,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 73,
+      "text": "我承認我說的不對，但是我不改。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 74,
+      "text": "16歲少女10年前居然才6歲。",
+      "level": 4,
+      "category": "廢話研究",
+      "source": "網絡流行"
+    },
+    {
+      "id": 75,
+      "text": "我不想卷了，但我也躺不平。",
+      "level": 3,
+      "category": "時代廢話",
+      "source": "網絡流行(2023)"
+    },
+    {
+      "id": 76,
+      "text": "好的，沒問題，馬上（指三小時後）。",
+      "level": 4,
+      "category": "社交廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 77,
+      "text": "你說得對，但你先別說。",
+      "level": 4,
+      "category": "毒舌繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 78,
+      "text": "我這個人很簡單，有事直接說。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 79,
+      "text": "我已經想通了，但還沒完全想通。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 80,
+      "text": "我的夢想是實現夢想。",
+      "level": 4,
+      "category": "哲學廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 81,
+      "text": "你很好，你很好，你真的很好。",
+      "level": 3,
+      "category": "社交廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 82,
+      "text": "你還在啊，你還在。",
+      "level": 2,
+      "category": "冷場王",
+      "source": "網絡流行"
+    },
+    {
+      "id": 83,
+      "text": "我來了，我來了，我來了。",
+      "level": 2,
+      "category": "冷場王",
+      "source": "網絡流行"
+    },
+    {
+      "id": 84,
+      "text": "嗯嗯，收到。",
+      "level": 1,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 85,
+      "text": "好的，收到，那我就先這樣了。",
+      "level": 2,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 86,
+      "text": "沒事就沒事吧。",
+      "level": 1,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 87,
+      "text": "我先去忙了。",
+      "level": 1,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 88,
+      "text": "嗯。",
+      "level": 1,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 89,
+      "text": "好的好的。",
+      "level": 1,
+      "category": "冷場王",
+      "source": "社交真實"
+    },
+    {
+      "id": 90,
+      "text": "據說每個成功男人背後都有一個女人。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 91,
+      "text": "我話說完，誰贊成，誰反對，誰棄權。",
+      "level": 4,
+      "category": "官話繞圈",
+      "source": "網絡流行"
+    },
+    {
+      "id": 92,
+      "text": "我之前還沒發現，當我發現時我已經發現了。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 93,
+      "text": "右眼看到的東西，左眼看不到。",
+      "level": 4,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 94,
+      "text": "陌生人，在嗎？你不在。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 95,
+      "text": "我們終於又見面了，七日不見，如隔一週。",
+      "level": 5,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 96,
+      "text": "張三給李四打電話，電話響了，張三掛了。",
+      "level": 3,
+      "category": "故事廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 97,
+      "text": "太陽東邊升起，西邊落下，方向感很好。",
+      "level": 3,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 98,
+      "text": "人會死，會。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 99,
+      "text": "不要跟人吵架，萬一打贏了呢？",
+      "level": 3,
+      "category": "矛盾描述",
+      "source": "網絡流行"
+    },
+    {
+      "id": 100,
+      "text": "年齡是個秘密，年齡。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 101,
+      "text": "我胖了，這是一個事實，胖了。",
+      "level": 3,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 102,
+      "text": "過馬路的時候要看紅綠燈，綠燈行紅燈停。",
+      "level": 3,
+      "category": "生活觀察",
+      "source": "網絡流行"
+    },
+    {
+      "id": 103,
+      "text": "有朋自遠方來，來了。",
+      "level": 3,
+      "category": "廢話古文",
+      "source": "改寫自《論語》"
+    },
+    {
+      "id": 104,
+      "text": "學而時習之，習。",
+      "level": 3,
+      "category": "廢話古文",
+      "source": "改寫自《論語》"
+    },
+    {
+      "id": 105,
+      "text": "老吾老以及人之老，幼吾幼以及人之幼。",
+      "level": 3,
+      "category": "廢話古文",
+      "source": "原句《孟子》"
+    },
+    {
+      "id": 106,
+      "text": "事實證明，說的都是事實。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 107,
+      "text": "我這個人最大的缺點就是缺點太多。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 108,
+      "text": "我話不多，都在這幾句話裡。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 109,
+      "text": "你要的我都有——我有的，給你。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 110,
+      "text": "天黑了，所以天黑了。",
+      "level": 3,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 111,
+      "text": "加油，為了自己，加油。",
+      "level": 3,
+      "category": "自我安慰",
+      "source": "網絡流行"
+    },
+    {
+      "id": 112,
+      "text": "今天又是充滿希望的一天，今天。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 113,
+      "text": "我正在努力，努。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 114,
+      "text": "看到這句話的時候，你在看這句話。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 115,
+      "text": "你懂的，我也懂。",
+      "level": 2,
+      "category": "冷場王",
+      "source": "網絡流行"
+    },
+    {
+      "id": 116,
+      "text": "我開門見山地說，這句話很開門。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 117,
+      "text": "我考慮過了，我會考慮的。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 118,
+      "text": "我不騙你，騙你是小狗。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 119,
+      "text": "工作嘛，幹就完了，幹。",
+      "level": 3,
+      "category": "時代廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 120,
+      "text": "別人笑我太瘋癲，我笑他人看不穿。看得穿。",
+      "level": 4,
+      "category": "廢話古詩",
+      "source": "改寫自唐寅"
+    },
+    {
+      "id": 121,
+      "text": "希望這次可以，這次。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 122,
+      "text": "好的，我知道了，我知道了。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 123,
+      "text": "我不笨，只是不夠聰明。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 124,
+      "text": "有些話我不知道怎麼說，因為說不清楚。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 125,
+      "text": "我說的每句話都是我想說的。",
+      "level": 4,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 126,
+      "text": "今天的飯很好吃，今天。",
+      "level": 3,
+      "category": "描述廢話",
+      "source": "網絡流行"
+    },
+    {
+      "id": 127,
+      "text": "話說到這份上，這份上。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 128,
+      "text": "聽到沒，沒聽到？",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 129,
+      "text": "不是說你，我是說我。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 130,
+      "text": "看完就忘記了，忘記了。",
+      "level": 3,
+      "category": "繞口令",
+      "source": "網絡流行"
+    },
+    {
+      "id": 131,
+      "text": "當你看到這句話的時候，你已經看到了這句話。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 132,
+      "text": "沒有意外的話，馬上就要有意外了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 133,
+      "text": "如果事情很簡單，那它就不複雜。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 134,
+      "text": "只要活著，就還沒死。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 135,
+      "text": "失敗乃成功之母，但成功不一定認媽。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 136,
+      "text": "時間過得很快，一眨眼就過去了，不眨眼也會過去。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 137,
+      "text": "能睡著的人，通常都睡著了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 138,
+      "text": "越努力的人，通常越努力。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 139,
+      "text": "你如果不出門，就不用回家。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 140,
+      "text": "每個60秒，都會過去一分鐘。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 141,
+      "text": "根據我多年的經驗，我發現我有多年經驗。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 142,
+      "text": "有的人活著，他還活著。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 143,
+      "text": "如果明天下雨，那明天有可能會下雨。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 144,
+      "text": "人不能同時踏進同一條河流，除非站著不動。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 145,
+      "text": "當問題出現時，問題就出現了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 146,
+      "text": "越不會的東西，我越不會。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 147,
+      "text": "會就是會，不會就是不會，不會因為不會就會。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 148,
+      "text": "早起的人，比晚起的人更早起。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 149,
+      "text": "當你年滿18歲時，你至少18歲了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 150,
+      "text": "不出意外的話，意外很快就要來了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 151,
+      "text": "只要肯放棄，就一定不會成功。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 152,
+      "text": "如果答案是對的，那答案就是正確的。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 153,
+      "text": "一件事情做兩次，就做了兩次。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 154,
+      "text": "當你感到餓的時候，代表你有點想吃東西。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 155,
+      "text": "睡不著的時候，通常很難睡著。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 156,
+      "text": "越看不懂的文章，越不容易看懂。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 157,
+      "text": "事情發展到這一步，就發展到這一步了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 158,
+      "text": "有些事情，知道的人都知道。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 159,
+      "text": "不知道的事情，我通常不知道。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 160,
+      "text": "如果你贏了，你就是勝利者。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 161,
+      "text": "當你關上門後，門就被關上了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 162,
+      "text": "人在呼吸的時候，通常會吸氣和呼氣。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 163,
+      "text": "吃飽的人，一般都不太餓。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 164,
+      "text": "如果你沒看過，那你應該沒見過。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 165,
+      "text": "越大的東西，通常比小的東西大。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 166,
+      "text": "今天是你人生中最年輕的一天，也是今天。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 167,
+      "text": "昨天已經過去了，因為那是昨天。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 168,
+      "text": "未來之所以叫未來，是因為它還沒來。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 169,
+      "text": "只要開始了，就代表已經開始了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 170,
+      "text": "事情既然已經發生，那它多半發生過。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 171,
+      "text": "有結果的事情，通常都有結果。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 172,
+      "text": "沒有人比我更了解我自己，除了更了解我的人。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 173,
+      "text": "如果你覺得冷，可能是因為不夠熱。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 174,
+      "text": "會下棋的人，通常比較會下棋。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 175,
+      "text": "當你停止前進時，你就沒有繼續前進。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 176,
+      "text": "如果有兩個選擇，那至少有一個以上的選擇。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 177,
+      "text": "有問題的人，通常都有問題。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 178,
+      "text": "能解決的問題，都有被解決的可能。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 179,
+      "text": "你不一定能成功，但一定會有結果，成功也是結果。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 180,
+      "text": "如果這不是重點，那重點可能不是這個。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 181,
+      "text": "當燈亮著的時候，它通常是亮的。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 182,
+      "text": "你越接近終點，就越接近結束。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 183,
+      "text": "長得高的人，一般不算矮。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 184,
+      "text": "如果今天不是昨天，那今天就是今天。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 185,
+      "text": "能被看到的東西，大多看得到。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 186,
+      "text": "如果沒有開始，就談不上結束。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 187,
+      "text": "有錢的人，通常比沒錢的人有錢。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 188,
+      "text": "聰明的人，往往不笨。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 189,
+      "text": "當你學會了，你就學會了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 190,
+      "text": "越晚睡的人，通常睡得越晚。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 191,
+      "text": "人生最大的遺憾之一，就是有遺憾。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 192,
+      "text": "如果你不想輸，就不要贏得太少。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 193,
+      "text": "當你走路時，你正在步行。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 194,
+      "text": "成功的人，大多有成功的經歷。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 195,
+      "text": "如果不是第一名，那就不是第一名。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 196,
+      "text": "看不見的東西，不容易看見。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 197,
+      "text": "有空的時候，通常比較有空。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 198,
+      "text": "你之所以會老，是因為年紀增加了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 199,
+      "text": "沒有消息，有時候就是沒有消息。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 200,
+      "text": "如果手機沒電，那它的電量多半不足。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 201,
+      "text": "當你打開電腦，電腦就被打開了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 202,
+      "text": "你越靠近我，就離我越近。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 203,
+      "text": "會遲到的人，有時候不會準時。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 204,
+      "text": "事情能不能成功，要看事情能不能成功。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 205,
+      "text": "如果今天放假，那今天應該不用上班。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 206,
+      "text": "人活到最後，通常會活到最後。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 207,
+      "text": "當你沉默時，你沒有說話。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 208,
+      "text": "會發生的事情，遲早會發生。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 209,
+      "text": "越是關鍵的時刻，越接近關鍵時刻。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 210,
+      "text": "沒有準備的人，往往準備不足。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 211,
+      "text": "當你學習新知識時，你正在學習。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 212,
+      "text": "喜歡吃辣的人，通常不討厭自己喜歡的辣。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 213,
+      "text": "如果不是假的，那有可能是真的。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 214,
+      "text": "當你站起來時，你就不是坐著。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 215,
+      "text": "快樂的時候，人通常比較開心。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 216,
+      "text": "如果你迷路了，那你可能找不到路。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 217,
+      "text": "當你關機後，設備就不是開機狀態。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 218,
+      "text": "每一個選擇，都是一次選擇。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 219,
+      "text": "能被忘記的事情，都有被忘記的風險。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 220,
+      "text": "越複雜的問題，通常越不簡單。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 221,
+      "text": "如果你已經到了，那你就不用再到了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 222,
+      "text": "人生不只有眼前的苟且，還有之後的苟且。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 223,
+      "text": "當你停止思考時，你暫時不在思考。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 224,
+      "text": "只要方向正確，就朝著正確方向前進。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 225,
+      "text": "沒有對比，就缺少對比。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 226,
+      "text": "當你發現問題時，你已經發現了問題。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 227,
+      "text": "會成功的人，不成功之前還沒成功。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 228,
+      "text": "如果你什麼都知道，那你不知道的就變少了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 229,
+      "text": "當我說完這句話的時候，這句話就說完了。",
+      "level": 3,
+      "category": "AI生成",
+      "source": "chatgpt"
+    },
+    {
+      "id": 230,
+      "text": "看完這100句的人，已經看完這100句了。",
+      "level": 4,
+      "category": "AI生成",
+      "source": "chatgpt"
+    }
   ],
   "long_form": [
     {
