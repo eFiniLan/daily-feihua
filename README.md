@@ -5,6 +5,10 @@
 
 ![hardware](https://img.shields.io/badge/hardware-ESP32-blue) ![display](https://img.shields.io/badge/display-2.13"_ePaper-lightgrey) ![lang](https://img.shields.io/badge/firmware-Arduino_C++-orange) ![ai](https://img.shields.io/badge/quotes-GitHub_Models-green)
 
+![每日廢話機實機照片，螢幕顯示「俗話說得好：俗話說得好。」](images/device.jpg)
+
+> 實機照：大字繁體中文（OpFont）、USB 朝上、右下角 `IP | 電壓`。
+
 ---
 
 ## 🤔 這是什麼
