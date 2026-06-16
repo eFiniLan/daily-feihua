@@ -91,12 +91,6 @@ def collect_codepoints():
             text = q if isinstance(q, str) else q.get("text", "")
             for c in text:
                 cps.add(ord(c))
-        for lf in data.get("long_form", []):
-            for c in lf.get("title", ""):
-                cps.add(ord(c))
-            for p in lf.get("paragraphs", []):
-                for c in p:
-                    cps.add(ord(c))
     # ASCII 可印字元
     for cp in range(0x20, 0x7F):
         cps.add(cp)

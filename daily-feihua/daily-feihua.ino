@@ -64,7 +64,6 @@ uint32_t bootCount = 0;
 uint32_t epochDay = 0;        // 自 1970-01-01 起的天數，用來算今天該顯示第幾條
 int      todayIdx = 0;        // 今天的 index
 String   todayText = "";      // 今天的廢話內容
-bool     isWeekend = false;   // 週末長文模式
 
 // ----------------------------------------------------------------------------
 // 內建 fallback 廢句（離線時保證有東西顯示）
@@ -92,15 +91,12 @@ uint32_t epochDayNow() {
   return now / 86400;
 }
 
-// 取得台北時間
+// 取得台北時間（等 NTP 對時完成）
 void syncTimeIfNeeded() {
   if (WiFi.status() == WL_CONNECTED) {
     configTime(TZ_OFFSET_SECONDS, 0, NTP_SERVER, "time.nist.gov");
     struct tm timeinfo;
-    if (getLocalTime(&timeinfo, 5000)) {
-      // 標記週末
-      isWeekend = (timeinfo.tm_wday == 0 || timeinfo.tm_wday == 6);
-    }
+    getLocalTime(&timeinfo, 5000);
   }
 }
 
