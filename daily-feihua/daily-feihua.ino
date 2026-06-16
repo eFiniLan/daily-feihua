@@ -317,7 +317,8 @@ void drawFooter() {
   time_t now = time(nullptr);
   if (now > 100000) {            // 已對時 → 顯示日期 + 電量
     struct tm* t = localtime(&now);
-    snprintf(buf, sizeof(buf), "%d/%d  %d%%", t->tm_mon + 1, t->tm_mday, pct);
+    snprintf(buf, sizeof(buf), "%04d-%02d-%02d  %d%%",
+             t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, pct);
   } else {                       // 還沒對時 → 只顯示電量
     snprintf(buf, sizeof(buf), "%d%%", pct);
   }
