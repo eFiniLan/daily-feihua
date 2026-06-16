@@ -298,7 +298,7 @@ void drawFooter() {
   int raw = analogRead(BAT_ADC);
   float voltage = raw * 3.3f / 4095.0f * 3.0f;
   char buf[40];
-  snprintf(buf, sizeof(buf), "%s (%.1fv)", ip.length() ? ip.c_str() : "no ip", voltage);
+  snprintf(buf, sizeof(buf), "%s | %.1fv", ip.length() ? ip.c_str() : "no ip", voltage);
   int w = zhWidth(font10, buf);
   zhDraw(250 - w, 120, font10, buf);
 }
