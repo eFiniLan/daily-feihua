@@ -1,27 +1,18 @@
 #!/usr/bin/env python3
 """
-quality_filter.py — 对 _staging.json 里的候选废句做质量过滤 + 评分
+quality_filter.py — 對 _staging.json 裡的候選廢句做品質過濾 + 去重，併入 quotes.json。
+
+quotes.json 格式為「純字串陣列」：
+  { "version": "...", "count": N, "quotes": ["句一", "句二", ...] }
 
 策略：
-  1. 长度过滤 (4-60 字)
-  2. 用启发式规则初步打 level (1-5)
-  3. 去重（与现有 quotes.json 内的）
-  4. （可选）调用 LLM 给每条打分，level 排序
-  5. 追加到 quotes.json，更新 version 字段
-
-heuristic level 打分：
-  - 包含「绕口令特征」(如 X 之 X、x 也是 x): +2
-  - 包含「矛盾描述」: +1
-  - 是「废话古诗」(改自古诗): +2
-  - 长度 < 12 且包含「说/听/是/有」: +1
-  - 默认 3
+  1. 長度過濾 (4-60 字) + 必須含中文 + 排除明顯垃圾
+  2. 去重：與現有 quotes 比對，且用「去標點/空白後」的正規化字串抓近似重複
+  3. 追加到 quotes.json 尾端，更新 count / version
 """
 
 import json
 import re
-import sys
-import os
-import time
 from pathlib import Path
 from datetime import datetime
 
@@ -30,93 +21,55 @@ JSON_PATH = ROOT / "quotes.json"
 STAGING = ROOT / "_staging.json"
 
 
-def heuristic_level(text):
-    """启发式打分"""
-    level = 3
-    # 绕口令特征
-    if re.search(r"(.+?)之\1", text) or re.search(r"(.+?)\1", text):
-        level += 1
-    if re.search(r"(还是|也是|还是|是.+?的)", text):
-        level += 1
-    # 矛盾描述
-    if re.search(r"(厚厚的薄|薄如|五彩斑斓的)", text):
-        level += 1
-    # 废话古诗标记
-    if any(kw in text for kw in ["曰", "若", "則", "不從", "子曰"]):
-        level += 1
-    # 引用 / 改写
-    if "：" in text or re.search(r"[「」『』《》]", text):
-        level += 1
-    # 极短或极长降级
-    if len(text) < 8:
-        level -= 1
-    if len(text) > 30:
-        level -= 1
-    return max(1, min(5, level))
+def normalize(text):
+    """去掉空白與標點，用來偵測近似重複（如只差一個逗號的兩句）。"""
+    return re.sub(r"[\s\W_]+", "", text)
 
 
 def is_good(text):
-    """质量过滤"""
     if not (4 <= len(text) <= 60):
         return False
-    if not re.search(r"[\u4e00-\u9fff]", text):
+    if not re.search(r"[一-鿿]", text):  # 必須含中文
         return False
-    bad = ["转发", "微博", "链接", "http", "广告", "赞助"]
-    for b in bad:
-        if b in text:
-            return False
-    return True
+    bad = ["轉發", "微博", "鏈接", "链接", "http", "廣告", "贊助"]
+    return not any(b in text for b in bad)
 
 
 def main():
     if not STAGING.exists():
-        print("[filter] no staging file, nothing to do")
+        print("[filter] 沒有 _staging.json，無事可做")
         return
 
-    with open(STAGING, "r", encoding="utf-8") as f:
-        candidates = json.load(f)
-    with open(JSON_PATH, "r", encoding="utf-8") as f:
-        data = json.load(f)
+    candidates = json.load(open(STAGING, encoding="utf-8"))
+    data = json.load(open(JSON_PATH, encoding="utf-8"))
+    quotes = data.get("quotes", [])
 
-    existing = {q["text"].strip() for q in data["quotes"]}
-    max_id = max((q["id"] for q in data["quotes"]), default=0)
+    seen_norm = {normalize(q) for q in quotes}
 
-    accepted = []
-    rejected = 0
+    accepted, rejected = [], 0
     for c in candidates:
-        text = c.get("text", "").strip()
-        if text in existing:
+        text = (c if isinstance(c, str) else c.get("text", "")).strip()
+        n = normalize(text)
+        if not text or n in seen_norm or not is_good(text):
             rejected += 1
             continue
-        if not is_good(text):
-            rejected += 1
-            continue
-        max_id += 1
-        accepted.append({
-            "id": max_id,
-            "text": text,
-            "level": heuristic_level(text),
-            "category": c.get("category", "自動抓取"),
-            "source": c.get("source", "auto"),
-        })
-        existing.add(text)
+        seen_norm.add(n)
+        accepted.append(text)
 
     if not accepted:
-        print(f"[filter] no new quotes accepted (rejected {rejected})")
+        print(f"[filter] 沒有新句被接受（拒絕 {rejected}）")
         STAGING.unlink()
         return
 
-    # 追加
-    data["quotes"].extend(accepted)
-    data["count"] = len(data["quotes"])
+    quotes.extend(accepted)
+    data["quotes"] = quotes
+    data["count"] = len(quotes)
     data["version"] = datetime.now().strftime("%Y-%m-%d")
 
-    with open(JSON_PATH, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
-
-    print(f"[filter] accepted {len(accepted)}, rejected {rejected}, total now {data['count']}")
+    json.dump(data, open(JSON_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    print(f"[filter] 接受 {len(accepted)}，拒絕 {rejected}，目前共 {data['count']} 句")
     STAGING.unlink()
-    print(f"[filter] updated {JSON_PATH}")
+    print(f"[filter] 已更新 {JSON_PATH}")
 
 
 if __name__ == "__main__":

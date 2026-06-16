@@ -88,7 +88,8 @@ def collect_codepoints():
     if JSON_PATH.exists():
         data = json.load(open(JSON_PATH, encoding="utf-8"))
         for q in data.get("quotes", []):
-            for c in q.get("text", ""):
+            text = q if isinstance(q, str) else q.get("text", "")
+            for c in text:
                 cps.add(ord(c))
         for lf in data.get("long_form", []):
             for c in lf.get("title", ""):

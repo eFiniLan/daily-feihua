@@ -87,7 +87,7 @@ def main():
         sys.exit("[gen] 缺少金鑰：請設定 GITHUB_TOKEN 或 LLM_API_KEY")
     existing = []
     if QUOTES.exists():
-        existing = [q["text"] for q in json.load(open(QUOTES, encoding="utf-8")).get("quotes", [])]
+        existing = json.load(open(QUOTES, encoding="utf-8")).get("quotes", [])
 
     messages = [
         {"role": "system", "content": SYSTEM},
@@ -97,8 +97,8 @@ def main():
     quotes = parse_quotes(call_llm(messages))
     print(f"[gen] 收到 {len(quotes)} 句候選")
 
-    staging = [{"text": q, "source": f"ai:{MODEL}", "category": "AI生成"} for q in quotes]
-    json.dump(staging, open(STAGING, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
+    # 純字串陣列；去重/過濾交給 quality_filter.py
+    json.dump(quotes, open(STAGING, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
     print(f"[gen] 已寫入 {STAGING}（交給 quality_filter.py 處理）")
 
 

@@ -63,23 +63,21 @@ Preferences prefs;
 uint32_t bootCount = 0;
 uint32_t epochDay = 0;        // 自 1970-01-01 起的天數，用來算今天該顯示第幾條
 int      todayIdx = 0;        // 今天的 index
-int      todayLevel = 3;      // 廢話指數 1-5
 String   todayText = "";      // 今天的廢話內容
 bool     isWeekend = false;   // 週末長文模式
 
 // ----------------------------------------------------------------------------
 // 內建 fallback 廢句（離線時保證有東西顯示）
 // ----------------------------------------------------------------------------
-struct FallbackQuote { const char* text; uint8_t level; };
-static const FallbackQuote FALLBACK[] = {
-  { "聽君一席話，如聽一席話。", 5 },
-  { "吃麵不吃蒜，等於沒吃蒜。", 4 },
-  { "上次這麼無語還是上次。",   4 },
-  { "子曰：三人行，必有三人。", 5 },
-  { "俗話說得好：俗話說得好。", 5 },
-  { "我曾在極度憤怒的情況下極度憤怒！", 5 },
-  { "七日不見，如隔一週。",     5 },
-  { "據我所知，我一無所知。",   4 },
+static const char* FALLBACK[] = {
+  "聽君一席話，如聽一席話。",
+  "吃麵不吃蒜，等於沒吃蒜。",
+  "上次這麼無語還是上次。",
+  "子曰：三人行，必有三人。",
+  "俗話說得好：俗話說得好。",
+  "我曾在極度憤怒的情況下極度憤怒！",
+  "七日不見，如隔一週。",
+  "據我所知，我一無所知。",
 };
 static const int FALLBACK_COUNT = sizeof(FALLBACK) / sizeof(FALLBACK[0]);
 
@@ -189,20 +187,17 @@ void pickTodayQuote() {
   // 先試 LittleFS
   JsonDocument doc;
   if (loadJsonFromFS(doc)) {
-    JsonArray arr = doc["quotes"];
+    JsonArray arr = doc["quotes"];   // 純字串陣列
     if (arr.size() > 0) {
-      todayIdx   = epochDay % arr.size();
-      JsonObject q = arr[todayIdx];
-      todayText  = q["text"].as<String>();
-      todayLevel = q["level"] | 3;
+      todayIdx  = epochDay % arr.size();
+      todayText = arr[todayIdx].as<String>();
       Serial.printf("[pick] from FS idx=%d text=%s\n", todayIdx, todayText.c_str());
       return;
     }
   }
   // fallback
-  todayIdx   = epochDay % FALLBACK_COUNT;
-  todayText  = FALLBACK[todayIdx].text;
-  todayLevel = FALLBACK[todayIdx].level;
+  todayIdx  = epochDay % FALLBACK_COUNT;
+  todayText = FALLBACK[todayIdx];
   Serial.printf("[pick] fallback idx=%d\n", todayIdx);
 }
 
@@ -297,18 +292,13 @@ void drawQuoteBlock() {
   }
 }
 
-// 底列：左=SSID + 上次連到的 IP，右=電池電壓（GPIO36，1/3 分壓）
+// 底列：右下角顯示「IP (電壓)」，整串靠右對齊
 void drawFooter() {
-  // 左：SSID + IP（IP 取自上次成功連線時存的，沒有就顯示 "no ip"）
   String ip = prefs.getString("lastIP", "");
-  String status = String(WIFI_SSID) + "  " + (ip.length() ? ip : String("no ip"));
-  zhDraw(0, 120, font10, status.c_str());
-
-  // 右：電池電壓
   int raw = analogRead(BAT_ADC);
   float voltage = raw * 3.3f / 4095.0f * 3.0f;
-  char buf[16];
-  snprintf(buf, sizeof(buf), "%.1fV", voltage);
+  char buf[40];
+  snprintf(buf, sizeof(buf), "%s (%.1fv)", ip.length() ? ip.c_str() : "no ip", voltage);
   int w = zhWidth(font10, buf);
   zhDraw(250 - w, 120, font10, buf);
 }
