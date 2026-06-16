@@ -49,6 +49,13 @@
 > `SPI.begin(13,-1,14,15)` 重新對應。少了這行螢幕不會有反應。
 > 詳見 [`wiring.md`](wiring.md)。
 
+### 🧊 外殼（3D 列印）
+
+社群現成的外殼，直接列印就能裝：
+
+- [Printables：Case for Waveshare 19399 2.13inch e-Paper Cloud Module](https://www.printables.com/model/897515-case-for-waveshare-19399-213inch-e-paper-cloud-mod)
+- [Thingiverse：thing 6204051](https://www.thingiverse.com/thing:6204051)
+
 ---
 
 ## 🚀 燒錄（用 arduino-cli）
