@@ -38,9 +38,11 @@ NOTO_BOLD = "/usr/share/fonts/noto-cjk/NotoSansCJK-Bold.ttc"
 NOTO_REG  = "/usr/share/fonts/noto-cjk/NotoSansCJK-Regular.ttc"
 NOTO_TC_FACE = 3  # .ttc 內的 Traditional Chinese 字面
 
-# (size_px, name, 主字型, 後備字型) — 底列狀態用 10px Bold，主廢句用 30px Regular
+# (size_px, name, 主字型, 後備字型)
+#   font10 = 底列狀態；font30 = 主廢句（短句大字）；font24 = 長句自動縮小用
 FONT_SIZES = [
     (10, "font10", str(OPFONT_BOLD), NOTO_BOLD),
+    (24, "font24", str(OPFONT_REG),  NOTO_REG),
     (30, "font30", str(OPFONT_REG),  NOTO_REG),
 ]
 

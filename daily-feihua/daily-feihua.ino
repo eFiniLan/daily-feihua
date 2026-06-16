@@ -24,6 +24,7 @@
 #include <GxEPD2_BW.h>
 #include <Adafruit_GFX.h>
 #include <time.h>
+#include "esp_random.h"
 
 #include "font_zh.h"
 #include "wifi_config.h"
@@ -61,7 +62,7 @@ GxEPD2_BW<GxEPD2_213_BN, GxEPD2_213_BN::HEIGHT> display(
 // ----------------------------------------------------------------------------
 Preferences prefs;
 uint32_t bootCount = 0;
-uint32_t epochDay = 0;        // 自 1970-01-01 起的天數，用來算今天該顯示第幾條
+uint32_t epochDay = 0;        // 自 1970-01-01 起的天數（只用來排程每週同步）
 int      todayIdx = 0;        // 今天的 index
 String   todayText = "";      // 今天的廢話內容
 
@@ -195,14 +196,14 @@ void pickTodayQuote() {
   if (loadJsonFromFS(doc)) {
     JsonArray arr = doc["quotes"];   // 純字串陣列
     if (arr.size() > 0) {
-      todayIdx  = epochDay % arr.size();
+      todayIdx  = esp_random() % arr.size();   // 隨機挑一條（斷電重開也不會從頭來）
       todayText = arr[todayIdx].as<String>();
       Serial.printf("[pick] from FS idx=%d text=%s\n", todayIdx, todayText.c_str());
       return;
     }
   }
   // fallback
-  todayIdx  = epochDay % FALLBACK_COUNT;
+  todayIdx  = esp_random() % FALLBACK_COUNT;
   todayText = FALLBACK[todayIdx];
   Serial.printf("[pick] fallback idx=%d\n", todayIdx);
 }
@@ -286,14 +287,23 @@ static int wrapUtf8(const ZHFont& f, const String& text, int maxWidthPx, String*
 }
 
 void drawQuoteBlock() {
-  const int lineH = 32;
-  String lines[3];
-  int n = wrapUtf8(font30, todayText, 234, lines, 3);   // 左右各留 8px
-  // 大字主廢句，垂直置中於 2..104 區（baseOff 約等於字高的 ascent）
-  int top = 2, bot = 104, baseOff = 24;
+  // 先試 30px / 最多 3 行（短句大字）
+  const ZHFont* f = &font30;
+  int lineH = 32, baseOff = 24, top = 2, bot = 104;
+  String lines[5];
+  int n = wrapUtf8(font30, todayText, 234, lines, 3);
+
+  // 若塞不下（有被截斷），改用 24px / 最多 4 行，確保整句顯示完整
+  int used = 0;
+  for (int i = 0; i < n; i++) used += lines[i].length();
+  if (used < (int)todayText.length()) {
+    f = &font24; lineH = 26; baseOff = 19; top = 4; bot = 108;
+    n = wrapUtf8(font24, todayText, 234, lines, 4);
+  }
+
   int y = top + ((bot - top) - n * lineH) / 2 + baseOff;
   for (int i = 0; i < n; i++) {
-    zhDraw(8, y, font30, lines[i].c_str());
+    zhDraw(8, y, *f, lines[i].c_str());
     y += lineH;
   }
 }
@@ -361,6 +371,19 @@ void setup() {
     Serial.println("[boot] LittleFS mount failed");
   }
 
+  // 按鈕（KEY / GPIO12）：長按 ≥2 秒 = 立刻同步；短按 = 換一條（反正每次都隨機挑）
+  bool forceSync = false;
+  if (wokeByButton()) {
+    unsigned long t0 = millis();
+    while (digitalRead(BTN_PIN) == LOW && millis() - t0 < 2500) delay(10);
+    if (millis() - t0 >= 2000) {
+      forceSync = true;
+      Serial.println("[btn] 長按 → 立刻同步");
+    } else {
+      Serial.println("[btn] 短按 → 換一條");
+    }
+  }
+
   // 決定今天顯示哪一條
   epochDay = epochDayNow();
   pickTodayQuote();
@@ -368,6 +391,7 @@ void setup() {
   // 判斷是否要 sync
   uint32_t lastSync = prefs.getUInt("lastSyncDay", 0);
   bool shouldSync = (bootCount == 1) ||       // 第一次開機
+                    forceSync ||              // 長按按鈕強制同步
                     ((epochDay - lastSync) >= SYNC_INTERVAL_DAYS);
 
   if (shouldSync) {
