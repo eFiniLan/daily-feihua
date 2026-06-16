@@ -168,9 +168,9 @@ bool syncFromCloud() {
   String payload = http.getString();
   http.end();
 
-  // 簡單校驗
-  JsonDocument probe;
-  if (deserializeJson(probe, payload.substring(0, 1024)) != DeserializationError::Ok) {
+  // 簡單校驗：確認看起來是我們的 JSON（避免把 404 頁 / captive portal 存進去）。
+  // 注意：不要去 parse 截斷的前 N bytes，那對大檔一定會失敗；完整解析在 pickTodayQuote。
+  if (payload.length() < 20 || payload.indexOf("\"quotes\"") < 0) {
     Serial.println("[sync] bad JSON");
     WiFi.mode(WIFI_OFF);
     return false;
