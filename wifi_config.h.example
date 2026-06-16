@@ -1,0 +1,12 @@
+// ============================================================================
+// wifi_config.h.example — 複製成 wifi_config.h (已 .gitignore) 並填上你的設定
+// ============================================================================
+
+#pragma once
+
+#define WIFI_SSID  "YOUR_WIFI_SSID"
+#define WIFI_PASS  "YOUR_WIFI_PASSWORD"
+
+// 可選：第二個備用網路
+// #define WIFI_SSID_2  "BACKUP_SSID"
+// #define WIFI_PASS_2  "BACKUP_PASS"

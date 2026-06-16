@@ -1,0 +1,50 @@
+name: 每週 AI 生成廢話
+
+# 放在 repo 的 .github/workflows/weekly-update.yml 才會生效
+
+on:
+  schedule:
+    - cron: '0 0 * * 0'        # 每週日 00:00 UTC（台北 08:00）
+  workflow_dispatch:            # 也可到 Actions 頁手動 Run workflow
+    inputs:
+      count:
+        description: '這次要生成幾句'
+        default: '20'
+
+permissions:
+  contents: write               # 可以 commit 回 repo
+  models: read                  # 可以呼叫 GitHub Models（用內建 GITHUB_TOKEN，免額外金鑰）
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 用 GitHub Models 生成廢話候選
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FEIHUA_COUNT: ${{ inputs.count || '20' }}
+          # 想換更強/更新的模型就改這行（GitHub Models 目錄裡任選）：
+          # LLM_MODEL: openai/gpt-4.1
+        run: python generate_feihua.py
+
+      - name: 品質過濾 + 評分 + 去重 + 併入 quotes.json
+        run: python quality_filter.py
+
+      - name: 有新廢話才 commit
+        run: |
+          if git diff --quiet quotes.json; then
+            echo "本週沒有新增廢話，跳過。"
+          else
+            git config user.name  "feihua-bot"
+            git config user.email "feihua-bot@users.noreply.github.com"
+            git add quotes.json
+            git commit -m "chore(data): AI 每週廢話更新 $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            git push
+          fi

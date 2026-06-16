@@ -1,0 +1,15 @@
+# WiFi 密碼等本機設定 — 絕對不要提交
+**/wifi_config.h
+
+# AI 生成的暫存候選（quality_filter.py 處理完即刪）
+_staging.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# OS / 編輯器
+.DS_Store
+*.swp
