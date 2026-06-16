@@ -1,85 +1,168 @@
 # 每日廢話機 📜💬
 
-> 每天醒來抬頭看一眼，給你一句神級廢話。  
-> ESP32 + 2.13 吋電子紙 + 純離線優先 + 每週增量同步
+> 每天醒來抬頭看一眼，給你一句神級廢話。
+> ESP32 + 2.13 吋電子紙 ‧ 離線優先 ‧ 每週用 AI 自動生成新廢話
 
-![device](https://img.shields.io/badge/hardware-ESP32-blue) ![e-paper](https://img.shields.io/badge/display-2.13"_ePaper-lightgrey) ![battery](https://img.shields.io/badge/battery-1800mAh-green) ![discontinued](https://img.shields.io/badge/Waveshare-EOL-red)
+![hardware](https://img.shields.io/badge/hardware-ESP32-blue) ![display](https://img.shields.io/badge/display-2.13"_ePaper-lightgrey) ![lang](https://img.shields.io/badge/firmware-Arduino_C++-orange) ![ai](https://img.shields.io/badge/quotes-GitHub_Models-green)
 
 ---
 
-## 🤔 為什麼做這個
+## 🤔 這是什麼
 
-廢話文學是中國互聯網最被低估的哲學流派。  
-**「聽君一席話，如聽一席話」** — 短短幾個字，省你讀十年書。
+一塊停產的 Waveshare 2.13" 電子紙模組，每天顯示一句**繁體中文廢話文學**——
+那種「聽君一席話，如聽一席話」「俗話說得好：俗話說得好」式的同義反覆。
+螢幕大字置中、超省電、平常完全離線，每週才連一次 WiFi 把新廢話抓下來。
 
-這個項目讓一塊停產的電子紙模組每天給你一句神級廢話，搭配廢話指數 ★★★★★ 顯示。  
-放辦公桌、放廁所、放床頭都行。抬頭就有心靈雞湯（誤）。
+新廢話哪來的？**每週由 GitHub Actions 呼叫 AI 自動生成**（見下方「每週自動更新」）。
 
 ---
 
 ## ✨ 功能
 
-- 📜 **每日一廢話** — 每天 0 點自動換一句（部分刷新 0.3s）
-- ⭐ **廢話指數** — 每句有 1-5 星評級，5 星 = 神級廢話
-- 🌐 **離線優先** — 內建 130 條精選，沒 WiFi 也能用
-- 🔄 **每週增量同步** — 每 7 天連一次 WiFi 拉 GitHub 上的 JSON
-- 🔋 **超省電** — 1800mAh 電池可撐 **2-3 個月**
-- 📖 **週末長文** — 內建《武二郎廟碑文》等經典，分段顯示
-- 🐱 **沒有內購** — 沒有訂閱、沒有廣告、沒有課金
+- 📜 **每日一句** — 每天換一句，部分刷新、瞬間完成
+- 🔤 **大字繁體中文** — 30px 置中大字，自訂 UTF-8 點陣渲染（非 Adafruit 內建字型）
+- 🌐 **離線優先** — 內建 fallback 句 + LittleFS 快取，沒 WiFi 照樣顯示
+- 🔄 **每週同步** — 每 7 天連一次 WiFi，拉 GitHub 上的 `quotes.json`
+- 🤖 **AI 自動產廢話** — GitHub Action 每週用 GitHub Models 生成、過濾、去重、commit
+- 🔋 **省電** — 平時深度睡眠，靠電池可撐很久
+- 📡 **狀態列** — 右下角顯示 `IP | 電壓`
 
 ---
 
-## 🚀 快速開始（15 分鐘搞定）
+## 🧰 硬體
 
-### 1. 燒錄硬體
+**Waveshare 2.13inch e-Paper Cloud Module**（已停產）
 
-#### 1.1 接線
-直接用 Waveshare 2.13" Cloud Module 模組上的腳位，**不用額外接線**：
+- ESP32-WROOM-32 + 2.13" 黑白電子紙（250×122，SSD1680 → `GxEPD2_213_BN`）
+- 1800mAh 鋰電池 + 充電電路、板載按鈕、CP2102 USB-UART、Type-C
 
-| 腳位 | 功能 |
-|------|------|
-| GPIO 15 | EPD CS |
-| GPIO 27 | EPD DC |
-| GPIO 26 | EPD RST |
-| GPIO 25 | EPD BUSY |
-| GPIO 13 | EPD SCK |
-| GPIO 14 | EPD MOSI |
-| GPIO 12 | 按鈕 (KEY) |
-| GPIO 36 | 電池電壓 ADC |
-| Type-C | 供電 + 燒錄 |
+接線**不用自己接**，模組已內建。預設腳位（已寫死在韌體）：
 
-#### 1.2 Arduino IDE 設定
-1. 安裝 ESP32 board：  
-   `檔案 → 偏好設定 → Additional Board URLs` 加入  
-   `https://dl.espressif.com/dl/package_esp32_index.json`
-2. 工具 → 開發板 → ESP32 Dev Module
-3. 安裝函式庫：
-   - `GxEPD2` (e-paper)
-   - `ArduinoJson` v6+
-   - `LittleFS` (ESP32 內建)
+| 功能 | GPIO | 功能 | GPIO |
+|------|------|------|------|
+| EPD CS | 15 | EPD SCK | 13 |
+| EPD DC | 27 | EPD MOSI | 14 |
+| EPD RST | 26 | 按鈕 KEY | 12 |
+| EPD BUSY | 25 | 電池 ADC | 36 |
 
-#### 1.3 設定 WiFi
-複製 `firmware/wifi_config.h.example` 為 `firmware/wifi_config.h`，填入：
-```cpp
-#define WIFI_SSID  "你的 WiFi 名稱"
-#define WIFI_PASS  "你的 WiFi 密碼"
+> ⚠️ SPI 接在 **SCK=13 / MOSI=14**（非 ESP32 預設腳位），韌體在 `setup()` 內已用
+> `SPI.begin(13,-1,14,15)` 重新對應。少了這行螢幕不會有反應。
+> 詳見 [`wiring.md`](wiring.md)。
+
+---
+
+## 🚀 燒錄（用 arduino-cli）
+
+```bash
+# 1. 安裝 ESP32 開發板支援
+arduino-cli config init
+arduino-cli config add board_manager.additional_urls \
+  https://espressif.github.io/arduino-esp32/package_esp32_index.json
+arduino-cli core update-index
+arduino-cli core install esp32:esp32
+
+# 2. 安裝函式庫
+arduino-cli lib install GxEPD2 "Adafruit GFX Library" ArduinoJson
+
+# 3. 設定 WiFi（複製範例後填入你的 2.4GHz 網路；此檔已 gitignore）
+cp daily-feihua/wifi_config.h.example daily-feihua/wifi_config.h
+$EDITOR daily-feihua/wifi_config.h
+
+# 4. （選用）把 daily-feihua.ino 裡的 JSON_URL 改成你的 raw GitHub 網址
+#    沒設也能跑，只是不會同步、永遠用內建/離線的句子
+
+# 5. 編譯 + 燒錄（務必用 Huge APP partition，字型 + 程式約佔 64% flash）
+FQBN=esp32:esp32:esp32:PartitionScheme=huge_app
+arduino-cli compile --fqbn $FQBN daily-feihua
+arduino-cli upload -p /dev/ttyUSB0 --fqbn $FQBN daily-feihua
 ```
 
-#### 1.4 設定 GitHub URL
-修改 `firmware/daily-feihua.ino` 裡的：
-```cpp
-#define JSON_URL  "https://raw.githubusercontent.com/你的帳號/daily-feihua/main/data/quotes.json"
+> 開機前記得把模組上的**電源開關撥到 ON**。
+> 進不了燒錄模式時：壓住 **BOOT**、點一下 **RESET/EN**、再放開 BOOT。
+> 螢幕是 180° 橫向（`setRotation(3)`），讓 USB 朝上。
+
+---
+
+## 🖥️ 螢幕排版
+
+```
+┌────────────────────────────────┐
+│                                │
+│        聽君一席話，            │   ← 30px 大字、置中、自動斷行
+│        如聽一席話。            │
+│                                │
+│              192.168.0.114 | 3.6v │  ← 10px，靠右
+└────────────────────────────────┘
 ```
 
-#### 1.5 燒錄
-- 工具 → Partition Scheme → **"Huge APP (3MB No OTA/1MB SPIFFS)"**  
-  (因為 font_zh.h 有 ~400KB)
-- 上傳
+排版邏輯都在 `daily-feihua.ino` 的 `drawQuoteBlock()` / `drawFooter()`。
 
-第一次開機會：
-1. 連 WiFi → 抓 JSON → 存到 LittleFS
-2. 顯示第一條廢話
-3. 進 deep sleep
+---
+
+## 🔤 字型（重點）
+
+電子紙上的中文不是用 Adafruit GFX 內建字型——那套 `write()` 一次只認一個 byte，
+**無法處理多 byte 的 UTF-8 / 繁體中文**。本專案改用：
+
+- `font_zh.h` — 由 `generate_font.py` 產生的「**codepoint 排序 glyph 表 + 1bpp bitmap**」
+- 韌體內自寫的 UTF-8 解碼 + 二分搜尋 + `drawPixel` blitter（`zhDraw()` 等）
+- 字源是 [**opfonts**](https://github.com/) 專案輸出的 `OpFont`（IBM Plex Sans 子集）：
+  - 狀態列 10px = OpFont-Bold；主廢句 30px = OpFont-Regular
+  - 內含**整份教育部常用國字標準字體表（4,808 字）**，所以未來新生成的廢話用到任何
+    常用字都已有 glyph，裝置端不必重產字型
+  - OpFont 缺的字（極少數）自動 fallback 到系統 Noto Sans CJK
+
+### 重新產生字型
+
+```bash
+# 需要：Python + Pillow，且本機有 opfonts 專案（預設路徑 ~/op/opfonts）與系統 Noto CJK
+python3 generate_font.py        # 直接寫進 daily-feihua/font_zh.h
+```
+
+> `generate_font.py` 頂端的 `OPFONTS` 路徑目前寫死，換機器請自行調整。
+
+---
+
+## 🤖 每週自動更新（AI 產廢話）
+
+整個迴圈跑在 **GitHub Actions**，裝置只負責每週把結果抓下來：
+
+```
+每週日 08:00（台北）GitHub 上：
+  generate_feihua.py  → GitHub Models（GPT-4.1，免費、用內建 GITHUB_TOKEN）
+  quality_filter.py   → 長度過濾 + 正規化去重（連只差標點的近似句也擋）
+  git commit quotes.json（有新句才 commit）
+        ↓ raw.githubusercontent.com
+  ESP32 每週醒來 → WiFi 同步 → 抓新 quotes.json → 顯示
+```
+
+**啟用步驟（一次性）：**
+
+1. 把本 repo 推上 GitHub。
+2. `weekly-update.yml` 已放在 `.github/workflows/`，會自動排程；workflow 已宣告
+   `permissions: models: read`，呼叫 GitHub Models **不需要任何額外金鑰**。
+3. 把韌體的 `JSON_URL` 設成 `https://raw.githubusercontent.com/<你>/daily-feihua/main/quotes.json`，燒一次。
+4. 想立刻試：repo 的 **Actions → 每週 AI 生成廢話 → Run workflow**。
+
+**換模型 / 換供應商**：`generate_feihua.py` 走 OpenAI 相容介面，設環境變數即可切換
+（`LLM_BASE_URL` / `LLM_MODEL` / `LLM_API_KEY`），例如改用 Google Gemini 免費層。
+
+---
+
+## 🗂️ 資料格式
+
+`quotes.json` 是精簡過的純字串陣列：
+
+```json
+{
+  "version": "2026-06-16",
+  "count": 230,
+  "quotes": ["聽君一席話，如聽一席話。", "吃麵不吃蒜，等於沒吃蒜。", "..."]
+}
+```
+
+裝置每天顯示第 `epochDay % count` 句。手動加句子：直接編輯 `quotes.json` 的陣列即可
+（記得若用到罕見字，重跑 `generate_font.py`）。
 
 ---
 
@@ -87,134 +170,72 @@
 
 ```
 daily-feihua/
-├── data/
-│   └── quotes.json          # 130 條精選廢話（可手動加）
-├── firmware/
-│   ├── daily-feihua.ino     # 主程式
-│   ├── font_zh.h            # 中文字型（自動生成，~380KB）
-│   └── wifi_config.h        # WiFi 設定（git ignored）
-├── scripts/
-│   ├── generate_font.py     # 重新生成字型
-│   ├── feihua_crawler.py    # 每週抓新廢話
-│   └── quality_filter.py    # 品質過濾 + 評分
-├── .github/workflows/
-│   └── weekly-update.yml    # 每週日早上 8 點自動跑
-└── docs/
-    └── wiring.md
+├── daily-feihua/              # Arduino sketch（編譯目標）
+│   ├── daily-feihua.ino       #   主程式
+│   ├── font_zh.h              #   產生的中文點陣字型（~4MB，已 commit）
+│   └── wifi_config.h.example  #   WiFi 設定範本（實際的 wifi_config.h 被 gitignore）
+├── generate_feihua.py         # 用 LLM 生成廢話候選（GitHub Models）
+├── quality_filter.py          # 過濾 + 正規化去重 + 併入 quotes.json
+├── generate_font.py           # 由 opfonts/Noto 產生 font_zh.h
+├── feihua_crawler.py          # 舊的 RSS 爬蟲（已被 AI 生成取代，保留備用）
+├── quotes.json                # 廢話資料（字串陣列）
+├── epd_diag/                  # 顯示診斷 sketch（純 ASCII 測試圖樣）
+├── wifi_test/                 # WiFi 連線診斷 sketch
+├── wiring.md                  # 接線說明
+└── .github/workflows/
+    └── weekly-update.yml      # 每週自動產廢話
 ```
 
 ---
 
-## 🤖 自動化
+## 🩺 診斷工具
 
-把這個 repo 推到 GitHub 後，`.github/workflows/weekly-update.yml` 會：
-- 每週日早上 8 點（台北時間）
-- 抓「廢話文學」相關超話的 RSS
-- 跑品質過濾
-- 自動重生成字型（如果加了新字）
-- commit 推回 main
+開發時很好用，遇到問題先燒這兩個確認硬體：
 
-ESP32 模組會在每週連一次 WiFi 時，自動拿到新內容。
+- **`epd_diag/`** — 不碰字型/JSON/WiFi，只畫邊框 + 對角線 + ASCII，確認面板與旋轉正常。
+- **`wifi_test/`** — 掃描 SSID、連線、NTP 對時、HTTPS 抓取，逐步印出哪一關過/沒過。
 
-### 觸發手動更新
-到 GitHub → Actions → 點 "Run workflow"
-
----
-
-## 🎨 螢幕排版
-
+```bash
+arduino-cli compile --fqbn $FQBN epd_diag && arduino-cli upload -p /dev/ttyUSB0 --fqbn $FQBN epd_diag
 ```
-┌────────────────────────────┐
-│ 💬 每日廢話      06/16    │  ← 12px 標題 + 日期
-│ ─────────────────────────  │
-│                            │
-│   聽君一席話，              │  ← 20px 主廢話
-│   如聽一席話。              │  ← 自動斷行
-│                            │
-│                            │
-│ 廢話指數 ★★★★★   第7天   │  ← footer + 電量
-└────────────────────────────┘
-```
-
----
-
-## 🔋 功耗分析
-
-| 模式 | 電流 | 持續時間 | 一天耗電 |
-|------|------|----------|----------|
-| Deep sleep | 10 µA | 24h × 6/7 = 20.6h | ~0.2 mAh |
-| Wake + 顯示更新 | 25 mA | 5s × 1 = 5s | ~0.04 mAh |
-| Wake + WiFi sync | 80 mA | 15s × 1/7 = 2s | ~0.06 mAh |
-| **每日總計** | | | **~0.3 mAh** |
-| 1800mAh 預估 | | | **~2000 天 (5+ 年)** |
-
-實際會因 WiFi 連線成功率、自放電等打個 3 折，預估 **2-3 個月**。
 
 ---
 
 ## 🐛 常見問題
 
-**Q: 螢幕沒反應？**  
-A: 確認你用的是 2.13" 黑白版（SKU 對應 `GxEPD2_213_BN`）。如果你的版本是 B73 紅黑白三色，把 `display` 物件改用 `GxEPD2_213_B73`。
+**Q: 螢幕全白沒反應？**
+A: 多半是 SPI 沒對應到 13/14，或面板型號不同。先燒 `epd_diag` 測。若你的是三色版，
+把 `display` 改用 `GxEPD2_213_B73` 之類的類別。
 
-**Q: 顯示亂碼？**  
-A: `font_zh.h` 沒編譯進去，確認檔案有在 firmware/ 資料夾裡。
+**Q: 中文變亂碼或空白？**
+A: 確認 `font_zh.h` 有編進去；若是新加的罕見字沒顯示，重跑 `generate_font.py`。
 
-**Q: WiFi 連不上？**  
-A: SSID/密碼不對、或是 5GHz WiFi（這模組只支援 2.4GHz）。
+**Q: WiFi 連不上？**
+A: 只支援 **2.4GHz**；先用 `wifi_test` 看是掃不到 SSID、密碼錯、還是對外不通。
 
-**Q: 想加新廢話？**  
-A: 直接編輯 `data/quotes.json` 加進去，重新燒一次 firmware，  
-或推到 GitHub 等模組下週自動 sync。
-
-**Q: 怎麼重置 WiFi 設定？**  
-A: 長按按鈕 5 秒（程式會進 reset 模式 — TODO: 尚未實作，目前要重燒）。
+**Q: 按鈕能換下一句嗎？**
+A: 目前 KEY（GPIO12）只用來把裝置從深睡喚醒、重畫。沒有實作短按換句 / 長按重置
+（可自行擴充）。
 
 ---
 
-## 🛠️ 進階玩法
-
-### 改顯示排版
-編輯 `firmware/daily-feihua.ino` 的 `renderDisplay()` 函式。
-
-### 加自訂來源
-在 `scripts/feihua_crawler.py` 的 `SOURCES` 列表加新來源。
-
-### 用 LLM 評分
-把 `quality_filter.py` 的 `heuristic_level` 換成呼叫 OpenAI API。
-
-### 改字體大小
-`generate_font.py` 的 `FONT_SIZES` 改 `[16, 24]`，重新跑。
-
-### 改成 7.5 吋大螢幕
-換 `GxEPD2_750` 類別，重新編譯。
-
----
-
-## 📜 廢話金句
-
-這個項目最有 sense 的 5 條：
+## 📜 廢話金句（最近的最愛）
 
 1. 聽君一席話，如聽一席話。
-2. 我曾在極度憕怒的情況下極度憕怒！
-3. 子曰：三人行，必有三人。
-4. 俗話說得好：俗話說得好。
-5. 7 日不見，如隔一週。
+2. 俗話說得好：俗話說得好。
+3. 但凡這句話有一點意義，也不至於一點意義都沒有。
+4. 今天是你人生中最年輕的一天，也是今天。
+5. 看完這 100 句的人，已經看完這 100 句了。
 
 ---
 
 ## 📄 License
 
-MIT — 隨便用，但記得也做一個給你自己笑。
-
----
+MIT — 隨便用。字型來源（IBM Plex / Noto）採 SIL Open Font License 1.1。
 
 ## 🙏 致謝
 
-- 廢話文學原作者：全體中國網民（B 站評論區為發源地）
-- 《武二郎廟碑文》：《梁山民間故事》
+- 廢話文學原作者：全體中文網民
+- 字型：[opfonts](https://github.com/)（IBM Plex Sans 子集）+ Noto Sans CJK 後備
 - 硬體：Waveshare 2.13" e-Paper Cloud Module
-- 寫程式：Mavis（你的 AI 助理）
-
-🌟 覺得有用，給個 star，你的支持是我繼續寫廢話的動力。  
-（雖然事實上，你不 star 我也會繼續寫，廢話文學的精神就是如此。）
+- 每週新廢話：GitHub Models
