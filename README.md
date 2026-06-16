@@ -171,13 +171,12 @@ python3 generate_font.py        # 直接寫進 daily-feihua/font_zh.h
 ```json
 {
   "version": "2026-06-16",
-  "count": 230,
   "quotes": ["聽君一席話，如聽一席話。", "吃麵不吃蒜，等於沒吃蒜。", "..."]
 }
 ```
 
-裝置每天顯示第 `epochDay % count` 句。手動加句子：直接編輯 `quotes.json` 的陣列即可
-（記得若用到罕見字，重跑 `generate_font.py`）。
+裝置每次喚醒用硬體亂數（`esp_random`）隨機挑一句，斷電重開也不會從頭來。
+手動加句子：直接編輯 `quotes.json` 的陣列即可（用到罕見字就重跑 `generate_font.py`）。
 
 ---
 

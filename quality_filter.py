@@ -26,10 +26,15 @@ def normalize(text):
     return re.sub(r"[\s\W_]+", "", text)
 
 
+# 日常對話 / 語助詞開頭 → 不是廢話文學
+JUNK_START = ("嗯", "喔", "噢", "唉", "好的", "收到", "我來了", "我先", "那我", "沒事", "掰", "拜拜")
+
 def is_good(text):
-    if not (4 <= len(text) <= 60):
+    if not (6 <= len(text) <= 60):        # 太短撐不起廢話結構
         return False
-    if not re.search(r"[一-鿿]", text):  # 必須含中文
+    if not re.search(r"[一-鿿]", text):    # 必須含中文
+        return False
+    if text.startswith(JUNK_START):       # 擋「嗯」「好的」「我先走了」這種日常閒聊
         return False
     bad = ["轉發", "微博", "鏈接", "链接", "http", "廣告", "贊助"]
     return not any(b in text for b in bad)
@@ -62,12 +67,12 @@ def main():
         return
 
     quotes.extend(accepted)
+    data.pop("count", None)              # count 多餘（韌體用陣列長度），不再維護
     data["quotes"] = quotes
-    data["count"] = len(quotes)
     data["version"] = datetime.now().strftime("%Y-%m-%d")
 
     json.dump(data, open(JSON_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    print(f"[filter] 接受 {len(accepted)}，拒絕 {rejected}，目前共 {data['count']} 句")
+    print(f"[filter] 接受 {len(accepted)}，拒絕 {rejected}，目前共 {len(quotes)} 句")
     STAGING.unlink()
     print(f"[filter] 已更新 {JSON_PATH}")
 
