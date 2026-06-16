@@ -118,23 +118,33 @@ bool loadJsonFromFS(JsonDocument& doc) {
   return true;
 }
 
-// 從 GitHub 拉新版 JSON
-bool syncFromCloud() {
-  Serial.println("[sync] connecting WiFi...");
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(WIFI_SSID, WIFI_PASS);
-  int attempts = 0;
-  while (WiFi.status() != WL_CONNECTED && attempts < 40) {
+// 嘗試連到某個 WiFi（最多約 10 秒），回傳是否成功
+static bool tryWifi(const char* ssid, const char* pass) {
+  Serial.printf("[sync] connecting \"%s\"", ssid);
+  WiFi.disconnect(true);
+  WiFi.begin(ssid, pass);
+  for (int i = 0; i < 40 && WiFi.status() != WL_CONNECTED; i++) {
     delay(250);
-    attempts++;
     Serial.print(".");
   }
-  if (WiFi.status() != WL_CONNECTED) {
-    Serial.println("\n[sync] WiFi failed, fallback");
+  bool ok = (WiFi.status() == WL_CONNECTED);
+  Serial.println(ok ? " OK" : " fail");
+  return ok;
+}
+
+// 從 GitHub 拉新版 JSON
+bool syncFromCloud() {
+  WiFi.mode(WIFI_STA);
+  bool connected = tryWifi(WIFI_SSID, WIFI_PASS);
+#ifdef WIFI_SSID_2
+  if (!connected) connected = tryWifi(WIFI_SSID_2, WIFI_PASS_2);  // 主網路連不上才試備用
+#endif
+  if (!connected) {
+    Serial.println("[sync] all WiFi failed, fallback");
     WiFi.mode(WIFI_OFF);
     return false;
   }
-  Serial.println("\n[sync] WiFi OK");
+  Serial.println("[sync] WiFi OK");
 
   // 記下這次連到的 IP，供畫面底列顯示（即使後面 JSON 抓取失敗也已存好）
   prefs.putString("lastIP", WiFi.localIP().toString());
