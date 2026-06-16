@@ -143,9 +143,6 @@ bool syncFromCloud() {
   }
   Serial.println("[sync] WiFi OK");
 
-  // 記下這次連到的 IP，供畫面底列顯示（即使後面 JSON 抓取失敗也已存好）
-  prefs.putString("lastIP", WiFi.localIP().toString());
-
   // 先抓時間
   syncTimeIfNeeded();
 
@@ -308,13 +305,22 @@ void drawQuoteBlock() {
   }
 }
 
-// 底列：右下角顯示「IP (電壓)」，整串靠右對齊
+// 底列：右下角顯示「日期 + 電量%」，整串靠右對齊
 void drawFooter() {
-  String ip = prefs.getString("lastIP", "");
+  // 電池 %（鋰電池近似：3.3V≈0%、4.2V≈100%）
   int raw = analogRead(BAT_ADC);
-  float voltage = raw * 3.3f / 4095.0f * 3.0f;
-  char buf[40];
-  snprintf(buf, sizeof(buf), "%s | %.1fv", ip.length() ? ip.c_str() : "no ip", voltage);
+  float v = raw * 3.3f / 4095.0f * 3.0f;
+  int pct = (int)((v - 3.3f) / (4.2f - 3.3f) * 100.0f);
+  if (pct < 0) pct = 0; if (pct > 100) pct = 100;
+
+  char buf[24];
+  time_t now = time(nullptr);
+  if (now > 100000) {            // 已對時 → 顯示日期 + 電量
+    struct tm* t = localtime(&now);
+    snprintf(buf, sizeof(buf), "%d/%d  %d%%", t->tm_mon + 1, t->tm_mday, pct);
+  } else {                       // 還沒對時 → 只顯示電量
+    snprintf(buf, sizeof(buf), "%d%%", pct);
+  }
   int w = zhWidth(font10, buf);
   zhDraw(250 - w, 120, font10, buf);
 }
